@@ -1,0 +1,19 @@
+{
+  "name": "statistic",
+  "version": "0.1.0",
+  "description": "数据统计的 demo 程序",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p src/ --outDir dist",
+    "build:watch": "tsc -p src/ -w --outDir dist",
+    "dev": "concurrently 'npm run build:watch' 'nodemon .'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "maxiaojun <somaxj@163.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.4.0",
+    "nodemon": "^1.11.0",
+    "typescript": "^2.2.2"
+  }
+}
