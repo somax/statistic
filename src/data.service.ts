@@ -20,7 +20,8 @@ export function getLast(data: OriginData[], id: number): OriginData {
  * @returns {originData[]}
  */
 export function getBetween(data: OriginData[], startId: number, endId: number): OriginData[] {
-    let _temp = data.filter(_d => _d.id > startId && _d.id <= endId);
+    let preId = getLast(data, startId).id
+    let _temp = data.filter(_d => _d.id >= preId && _d.id <= endId);
     return _temp;
 }
 

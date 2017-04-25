@@ -10,14 +10,14 @@ import { getBetween, getLast } from './data.service';
  */
 export function getDiff(data: OriginData[], startId: number, endId: number): DiffData {
     let startVal = getLast(data, startId).val;
-    let endVal = getLast(data, endId).val;
+    let {id, val} = getLast(data, endId);
     return {
-        id: endId,
+        id: id,
         startId: startId,
         endId: endId,
         startVal: startVal,
-        endVal: endVal,
-        val: endVal - startVal
+        endVal: val,
+        val: val - startVal
     };
 }
 
@@ -31,13 +31,16 @@ export function getDiff(data: OriginData[], startId: number, endId: number): Dif
  * @returns {sumData}
  */
 export function getSum(data: OriginData[], startId: number, endId: number): SumData {
-    let vals = getBetween(data, startId, endId).map(_d => _d.val);
+    let betweenData = getBetween(data, startId, endId)
+    let vals = betweenData.map(d => d.val);
     let sumVal = 0;
+    let id: number;
     for (let i = 0, l = vals.length; i < l; i++) {
-        sumVal += vals[i];
+        sumVal = sumVal + vals[i];
+        id = betweenData[i].id
     }
     return {
-        id: endId,
+        id: id,
         startId: startId,
         endId: endId,
         val: sumVal
