@@ -1,14 +1,14 @@
-interface originData {
+interface OriginData {
     id: number;
     val: number;
 }
 
-interface planData {
+interface PlanData {
     startId: number;
     endId: number;
 }
 
-interface diffData {
+interface DiffData {
     id: number;
     startId: number;
     endId: number;
@@ -17,14 +17,14 @@ interface diffData {
     val: number;
 }
 
-interface sumData {
+interface SumData {
     id: number;
     startId: number;
     endId: number;
     val: number;
 }
 
-interface avgData {
+interface AvgData {
     id: number;
     startId: number;
     endId: number;

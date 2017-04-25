@@ -1,5 +1,5 @@
 // 模拟数据，读数值
-export const mockData: originData[] = (function () {
+export const mockData: OriginData[] = (function () {
     let _data = [];
     let v = 100;
     for (let i = 0; i < 1000; i++) {
@@ -7,7 +7,7 @@ export const mockData: originData[] = (function () {
         _data.push({
             id: i,
             val: v
-        })
+        });
     }
     return _data;
-})()
+})();

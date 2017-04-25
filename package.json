@@ -4,17 +4,22 @@
   "description": "数据统计的 demo 程序",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -p src/ --outDir dist",
-    "build:watch": "tsc -p src/ -w --outDir dist",
+    "build": "npm run lint && tsc -p src/ ",
+    "build:watch": "tsc -p src/ -w",
     "dev": "concurrently 'npm run build:watch' 'nodemon .'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "tslint ./src/**/*.ts -t verbose",
+    "pretest": "npm run build",
+    "test": "mocha dist/**/*.spec.js"
   },
   "author": "maxiaojun <somaxj@163.com>",
   "license": "ISC",
   "devDependencies": {
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.13",
     "concurrently": "^3.4.0",
-    "eslint": "^3.19.0",
+    "mocha": "^3.3.0",
     "nodemon": "^1.11.0",
+    "tslint": "^5.1.0",
     "typescript": "^2.2.2"
   }
 }

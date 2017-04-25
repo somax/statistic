@@ -1,14 +1,14 @@
-import { getLast, getBetween } from "./data.service";
+import { getBetween, getLast } from './data.service';
 
 /**
  * 获取区间差值
- * 
- * @param {originData[]} data 
- * @param {number} startId 
+ *
+ * @param {originData[]} data
+ * @param {number} startId
  * @param {number} endId
- * @returns {diffData} 
+ * @returns {diffData}
  */
-export function getDiff(data: originData[], startId: number, endId: number): diffData {
+export function getDiff(data: OriginData[], startId: number, endId: number): DiffData {
     let startVal = getLast(data, startId).val;
     let endVal = getLast(data, endId).val;
     return {
@@ -18,22 +18,22 @@ export function getDiff(data: originData[], startId: number, endId: number): dif
         startVal: startVal,
         endVal: endVal,
         val: endVal - startVal
-    }
+    };
 }
 
 
 /**
  * 获取区间汇总
- * 
- * @param {originData[]} data 
- * @param {number} startId 
+ *
+ * @param {originData[]} data
+ * @param {number} startId
  * @param {number} endId
- * @returns {sumData} 
+ * @returns {sumData}
  */
-export function getSum(data: originData[], startId: number, endId: number): sumData {
-    let vals = getBetween(data, startId, endId).map(_d => _d.val)
+export function getSum(data: OriginData[], startId: number, endId: number): SumData {
+    let vals = getBetween(data, startId, endId).map(_d => _d.val);
     let sumVal = 0;
-    for (var i = 0, l = vals.length; i < l; i++) {
+    for (let i = 0, l = vals.length; i < l; i++) {
         sumVal += vals[i];
     }
     return {
@@ -41,27 +41,30 @@ export function getSum(data: originData[], startId: number, endId: number): sumD
         startId: startId,
         endId: endId,
         val: sumVal
-    }
+    };
 }
 
 /**
  * 获取区间平均值
- * 
- * @param {originData[]} data 
- * @param {number} start 
- * @param {number} end 
- * @returns {avgData} 
+ *
+ * @param {originData[]} data
+ * @param {number} start
+ * @param {number} end
+ * @returns {avgData}
  */
-export function getAvg(data: originData[], start: number, end: number): avgData {
-    let vals = getBetween(data, start, end).map(d => d.val)
+export function getAvg(data: OriginData[], start: number, end: number): AvgData {
+    let betweenData = getBetween(data, start, end)
+    let vals = betweenData.map(d => d.val);
     let sumVal = 0;
-    for (var i = 0, l = vals.length; i < l; i++) {
+    let id: number;
+    for (let i = 0, l = vals.length; i < l; i++) {
         sumVal += vals[i];
+        id = betweenData[i].id
     }
     return {
-        id: end,
+        id: id,
         startId: start,
         endId: end,
         val: sumVal / vals.length
-    }
+    };
 }

@@ -1,11 +1,29 @@
-# 汇总统计的范例
+# Node-Statistic
 
-用 typescript 写的 node 程序
+汇总统计, 一个用 TypeScript 写的 Node 程序范例
 
-## usage
-
+## 安装依赖
 
 ```bash
 npm i
-npm run dev
 ```
+
+## 使用 npm script
+
+```bash
+# 开发模式
+npm run dev
+
+# 编译 TS
+npm run build
+
+# 代码检测
+npm run lint
+```
+
+## 使用  VS CODE 自动编译 TS 文件
+
+1. 按 `F1` 或者 `cmd + shift + p`
+2. 输入 `run build task` 回车
+
+
