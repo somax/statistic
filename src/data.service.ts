@@ -14,13 +14,14 @@ export function getLast(data: OriginData[], id: number): OriginData {
 /**
  * 获取给定范围的数据（）
  *
- * @param {originData[]} data
- * @param {number} startId
- * @param {number} endId
+ * @param {originData[]} data 输入数据
+ * @param {number} startId 开始的编号
+ * @param {number} endId 结束的编号
  * @returns {originData[]}
  */
 export function getBetween(data: OriginData[], startId: number, endId: number): OriginData[] {
-    let preId = getLast(data, startId).id
+    let preData = getLast(data, startId)
+    let preId = preData ? preData.id : startId;
     let _temp = data.filter(_d => _d.id >= preId && _d.id <= endId);
     return _temp;
 }
