@@ -12,13 +12,15 @@ npm i
 
 ```bash
 # 开发模式
-npm run dev
+npm start
 
 # 编译 TS
 npm run build
 
 # 代码检测
 npm run lint
+
+
 ```
 
 ## 使用  VS CODE 自动编译 TS 文件
@@ -26,4 +28,5 @@ npm run lint
 1. 按 `F1` 或者 `cmd + shift + p`
 2. 输入 `run build task` 回车
 
+或者按`cmd + shift + b`
 

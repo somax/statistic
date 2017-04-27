@@ -4,12 +4,14 @@
   "description": "数据统计的 demo 程序",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npm run lint && tsc -p src/ ",
-    "build:watch": "tsc -p src/ -w",
-    "dev": "concurrently 'npm run build:watch' 'nodemon .'",
-    "lint": "tslint ./src/**/*.ts -t verbose",
-    "pretest": "npm run build",
-    "test": "mocha dist/**/*.spec.js"
+    "clean": "rm -frv dist/* ## 清理编译目录 ##",
+    "prebuild": "npm run lint && npm run clean ## 在 build 之前执行 lint 和 clean ##",
+    "build": "tsc -p src/ ## 编译 ##",
+    "build:watch": "npm run build -- -w ## 监视文件变化自动编译 ##",
+    "start": "concurrently 'npm run build:watch' 'nodemon .' ## 启动 ##",
+    "lint": "tslint ./src/**/*.ts -t verbose ## 代码质量检测 ##",
+    "pretest": "npm run build ## 测试前先编译 ##",
+    "test": "mocha dist/**/*.spec.js ## 测试 ##"
   },
   "author": "maxiaojun <somaxj@163.com>",
   "license": "ISC",
@@ -21,5 +23,8 @@
     "nodemon": "^1.11.0",
     "tslint": "^5.1.0",
     "typescript": "^2.2.2"
+  },
+  "dependencies": {
+    "npm": "^4.5.0"
   }
 }
