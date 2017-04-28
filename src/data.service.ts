@@ -3,12 +3,15 @@
  *
  * @param {originData[]} data
  * @param {number} id
- * @returns {originData}
+ * @returns {originData | null}
  */
-export function getLast(data: OriginData[], id: number): OriginData {
-    return data
-        .filter(d => d.id <= id)
-        .pop();
+export function getLast(data: OriginData[], id: number): OriginData | null {
+    let _data = data.filter(d => d.id <= id)
+    if (_data.length === 0) {
+        return null;
+    } else {
+        return _data.pop();
+    }
 }
 
 /**

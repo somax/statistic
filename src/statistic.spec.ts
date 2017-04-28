@@ -14,19 +14,19 @@ import { getAvg, getDiff, getSum } from './statistic';
 
 describe('Statistic', () => {
   describe('getAvg', () => {
-    it('should equal result', () => {
+    it('应该获得正确的平均值', () => {
       deepEqual(avgResult, getAvg(mockdata, 1, 10))
     })
   })
 
   describe('getDiff', () => {
-    it('should equal result', () => {
+    it('应该获得正确的差值', () => {
       deepEqual(diffResult, getDiff(mockdata, 1, 10))
     });
   });
 
   describe('getSum', () => {
-    it('should equal result', () => {
+    it('应该获得正确的汇总', () => {
       deepEqual(sumResult, getSum(mockdata, 1, 10))
     });
   });

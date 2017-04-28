@@ -9,7 +9,7 @@ const result = [
 ]
 describe('Plan', () => {
   describe('makePlan', () => {
-    it('should equal result', () => {
+    it('应该生成正确的计划数组', () => {
       deepEqual(result, makePlan(0, 11, 5))
     })
   })
